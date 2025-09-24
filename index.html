@@ -390,15 +390,16 @@ function generateWorksheet() {
     `<div class="item"><span class="num">${toCN(i+1)}、</span>${q.q}</div>`
   ).join("\n");
 
-  const html = `<!doctype html>
+const html = `<!doctype html>
 <html lang="zh-Hant"><head><meta charset="utf-8"/>
 <title>成語學習單</title>
 <link href="https://fonts.googleapis.com/css2?family=Iansui&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Iansui&display=swap');
   @page { size: A4 landscape; margin: 18mm; }
   body {
     writing-mode: vertical-rl; text-orientation: mixed; font-feature-settings: "palt";
-    font-family: "Iansui","IansuiKai","CwTeXKai","Noto Serif CJK TC","Noto Serif TC","PingFang TC","Microsoft JhengHei",serif;
+    font-family: "Iansui", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
     color:#111; line-height:1.6; font-size:19px;
   }
   h1,h2{margin:0;padding:0}
@@ -469,6 +470,7 @@ ${right}
     </script>
 </body>
 </html>
+
 
 
 
