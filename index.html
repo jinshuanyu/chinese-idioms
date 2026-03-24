@@ -417,7 +417,7 @@ function generateWorksheet() {
   selectedIdioms.forEach((idiomName, i) => {
     const info = allIdioms[idiomName] || {};
     const def = info.def || "";
-    left += `<div class="item"><span class="num">${toCN(i+1)}、</span>【${idiomName}】：${def}</div>\n`;
+    left += `<div class="item"><div class="item-inner"><span class="num">${toCN(i+1)}、</span>【${idiomName}】：${def}</div></div>\n`;
   });
 
   // 右頁：每個成語隨機挑一句例句，挖空後打亂順序
@@ -432,7 +432,7 @@ function generateWorksheet() {
   const shuffledExamples = shuffle(examples);
 
   const right = shuffledExamples.map((q, i) =>
-    `<div class="item"><span class="num">${toCN(i+1)}、</span>${q.q}</div>`
+    `<div class="item"><div class="item-inner"><span class="num">${toCN(i+1)}、</span>${q.q}</div></div>`
   ).join("\n");
 
   // 參考答案（每 3 題換行）
@@ -452,13 +452,14 @@ function generateWorksheet() {
   @page { size: A4 landscape; margin: 18mm; }
   body { writing-mode: vertical-rl; text-orientation: mixed; font-feature-settings: "palt";
     font-family: "Iansui","PingFang TC","Microsoft JhengHei",sans-serif !important;
-    color:#111; line-height:1.6; font-size:19px; }
+    color:#111; line-height:1.6; font-size:17px; }
   h1,h2{margin:0;padding:0}
-  h1{font-size:22px;text-align:center;margin-block-end:3mm;font-weight:700}
+  h1{font-size:36px;text-align:center;margin-block-end:4mm;font-weight:700;letter-spacing:0.15em}
   h2{font-size:18px;margin-block-end:6mm;border-inline-start:2px solid #333;padding-inline-start:4mm}
-  .custom-title{font-size:20px;text-align:center;margin-block-end:1mm;color:#555;font-weight:500;padding-inline-start:0;text-indent:0}
+  .custom-title{font-size:26px;text-align:center;margin-block-end:3mm;color:#555;font-weight:500;padding-inline-start:0;text-indent:0;letter-spacing:0.1em}
   .items{margin:0;padding:0}
-  .item{margin-block-end:4mm;padding-inline-start:2.5em;text-indent:-2.5em}
+  .item{margin-block-end:1.5mm}
+  .item-inner{display:inline;padding-inline-start:2.5em;text-indent:-2.5em;display:block}
   .num{font-weight:700}
   .page-break{page-break-before:always}
   .answer-inline{ font-size:18px; transform:rotate(180deg); display:inline-block; }
